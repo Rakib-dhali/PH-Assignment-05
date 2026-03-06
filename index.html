@@ -18,12 +18,78 @@
     <title>GitHub issue Tracker | Login</title>
     <style type="text/tailwindcss">
       @theme {
-        --color-darkBlue: #1f2937;
+        --font-geist: "Geist", sans-serif;
+        --color-darkblue: #1f2937;
         --color-blue: #4a00ff;
       }
     </style>
   </head>
   <body>
-   
+    <div class="w-full h-screen bg-[#faf8fc] p-5 md:p-[78px] font-geist">
+      <div
+        class="max-w-[520px] rounded-lg mx-auto bg-white drop-shadow-[0_5px_10px_rgba(0,0,0,0.08)] flex flex-col gap-6"
+      >
+        <!-- logo -->
+        <div class="w-11/12 text-center flex flex-col items-center pt-8">
+          <img
+            class="size-[100px] mb-6"
+            src="./assets/github-logo.png"
+            alt="github-logo"
+          />
+          <h2 class="font-semibold text-darkblue text-2xl mb-1">
+            GitHub Issues Tracker
+          </h2>
+          <p class="text-[#64748B]">Sign in to manage your issues</p>
+        </div>
+        <!-- input field -->
+        <div class="w-11/12 flex flex-col items-center mx-auto">
+          <fieldset class="w-full mx-auto">
+            <legend class="font-medium text-darkblue mb-2">Username</legend>
+            <input
+              id="username"
+              type="text"
+              class="input w-full rounded-lg p-4"
+              placeholder="Enter Username"
+            /><br />
+            <p class="text-blue mt-2">Default: admin</p>
+          </fieldset>
+          <fieldset class="w-full mx-auto">
+            <legend class="font-medium text-darkblue mb-2">Password</legend>
+            <input
+              id="password"
+              type="password"
+              class="input w-full rounded-lg p-4"
+              placeholder="Enter Password"
+            /><br />
+            <p class="text-blue mt-2">Default: admin123</p>
+          </fieldset>
+        </div>
+        <!-- login button -->
+        <div class="w-11/12 flex flex-col items-center mx-auto">
+          <button
+            id="signin-btn"
+            class="text-white rounded-lg bg-blue/95 active:scale-99 hover:bg-blue p-4 w-full"
+          >
+            Sign in
+          </button>
+        </div>
+        <!-- horizontal or -->
+        <div class="w-11/12 flex flex-col items-center mx-auto">
+          <div class="divider">OR</div>
+        </div>
+        <!--  Demo Credentials: -->
+        <div class="w-11/12 flex flex-col items-center mx-auto">
+          <p class="text-[#64748B] text-center">Demo Credentials:</p>
+          <div class="w-full bg-[#F8FAFC] p-6 text-center">
+            <h2>
+              <span class="font-semibold text-darkblue">Username</span>admin
+            </h2>
+            <h2>
+              <span class="font-semibold text-darkblue">Password</span>admin123
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -29,6 +29,23 @@
         --color-darkblue: #1f2937;
         --color-blue: #4a00ff;
       }
+
+      .active {
+        color: white;
+        cursor: pointer;
+        border-radius: 0.5rem; /* rounded-lg */
+        background-color: rgba(59, 130, 246, 0.95); /* bg-blue/95 (approx) */
+        padding: 1rem; /* p-4 */
+        transition: all 0.2s ease;
+      }
+
+      .active:hover {
+        background-color: rgb(59, 130, 246); /* hover:bg-blue */
+      }
+
+      .active:active {
+        transform: scale(0.99); /* active:scale-99 */
+      }
     </style>
   </head>
   <body>
@@ -81,6 +98,14 @@
           </div>
         </nav>
       </section>
+      <section
+        class="w-full max-w-[1110px] bg-white p-3 md:p-6 flex gap-2 mt-8 mx-auto md:mt[60px] drop-shadow-[0_5px_10px_rgba(0,0,0,0.08)]"
+      >
+        <button id="all" class="btn text-center px-4 py-2 active">All</button>
+        <button id="open" class="btn text-center px-4 py-2">open</button>
+        <button id="closed" class="btn text-center px-4 py-2">closed</button>
+      </section>
     </div>
+    <script src="./script/main.js"></script>
   </body>
 </html>

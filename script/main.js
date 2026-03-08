@@ -4,6 +4,8 @@ const allBtn = document.getElementById("all");
 const openBtn = document.getElementById("open");
 const closedBtn = document.getElementById("closed");
 const btns = document.querySelectorAll(".btn");
+const searchBtn = document.getElementById("search-btn");
+const searchInput = document.getElementById("search");
 
 function updateCount(issues) {
   document.getElementById("issue-count").innerText = issues.length;
@@ -33,6 +35,21 @@ closedBtn.addEventListener("click", () => {
   const openissues = allissues.filter((card) => card.status === "closed");
   showAllCards(openissues);
   updateCount(openissues);
+});
+
+function search() {
+  const searchValue = searchInput.value;
+  const matchedCards = allissues.filter((card) =>
+    card.title.toLowerCase().includes(searchValue.toLowerCase()),
+  );
+  showAllCards(matchedCards);
+  updateCount(matchedCards);
+}
+searchBtn.addEventListener("click", search);
+searchBtn.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    searchIssues();
+  }
 });
 
 async function fetchData() {

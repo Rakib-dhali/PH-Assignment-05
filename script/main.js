@@ -38,32 +38,38 @@ closedBtn.addEventListener("click", () => {
 });
 
 function search() {
+  Loader(true);
   const searchValue = searchInput.value;
   const matchedCards = allissues.filter((card) =>
     card.title.toLowerCase().includes(searchValue.toLowerCase()),
   );
-  showAllCards(matchedCards);
-  updateCount(matchedCards);
+
+  setTimeout(() => {
+    showAllCards(matchedCards);
+    updateCount(matchedCards);
+    Loader(false);
+  }, 300);
 }
 searchBtn.addEventListener("click", search);
 searchBtn.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    searchIssues();
+    search();
   }
 });
 
 async function fetchData() {
+  Loader(true);
   try {
     const res = await fetch(
       "https://phi-lab-server.vercel.app/api/v1/lab/issues",
     );
     const data = await res.json();
     allissues = data.data;
-    console.log(allissues);
     showAllCards(allissues);
   } catch (error) {
     console.error("error fetching data", error);
   }
+  Loader(false);
 }
 
 function showAllCards(cards) {
@@ -122,4 +128,15 @@ function showAllCards(cards) {
   });
 }
 
+function Loader(status) {
+  if (status === true) {
+    document
+      .querySelectorAll(".skeleton")
+      .forEach((sk) => sk.classList.remove("hidden"));
+  } else {
+    document
+      .querySelectorAll(".skeleton")
+      .forEach((sk) => sk.classList.add("hidden"));
+  }
+}
 fetchData();
